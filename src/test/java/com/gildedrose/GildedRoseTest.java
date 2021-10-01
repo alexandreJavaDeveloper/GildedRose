@@ -31,7 +31,7 @@ class GildedRoseTest {
     void updateQualityWithThreeItems() {
         Item[] items = new Item[] { new Item("foo", 0, 0),
                 new Item("foo2", 0, 0),
-                new Item("foo3", 15, 10)};
+                new Item("foo3", 0, 0)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         app.updateQuality();
@@ -44,8 +44,8 @@ class GildedRoseTest {
         assertEquals(-2, app.items[1].sellIn);
 
         assertEquals("foo3", app.items[2].name);
-        assertEquals(8, app.items[2].quality);
-        assertEquals(13, app.items[2].sellIn);
+        assertEquals(0, app.items[2].quality);
+        assertEquals(-2, app.items[2].sellIn);
     }
 
     @Test
