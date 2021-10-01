@@ -113,4 +113,15 @@ class GildedRoseTest {
         assertEquals(26, app.items[0].quality);
         assertEquals(1, app.items[0].sellIn);
     }
+
+    @Test
+    void updateQualityAsBackstageWithQuality_11() {
+        Item[] items = new Item[] { new Item(GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, 2, 11) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        app.updateQuality();
+        assertEquals(GildedRose.BACKSTAGE_PASSES_TO_A_TAFKAL_80_ETC_CONCERT, app.items[0].name);
+        assertEquals(17, app.items[0].quality);
+        assertEquals(0, app.items[0].sellIn);
+    }
 }
