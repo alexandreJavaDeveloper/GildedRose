@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.model.Item;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
