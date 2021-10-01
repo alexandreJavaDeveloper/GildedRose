@@ -2,11 +2,11 @@ package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
 
-public class Sulfuras extends ItemCustom {
+public class SulfurasItem extends ItemCustom {
 
     private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
-    public Sulfuras(int sellIn, int quality) {
+    public SulfurasItem(int sellIn, int quality) {
         super(SULFURAS, sellIn, quality);
     }
 

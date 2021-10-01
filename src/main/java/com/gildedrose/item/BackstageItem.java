@@ -2,11 +2,11 @@ package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
 
-public class BackstagePasses extends ItemCustom {
+public class BackstageItem extends ItemCustom {
 
     private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 
-    public BackstagePasses(int sellIn, int quality) {
+    public BackstageItem(int sellIn, int quality) {
         super(BACKSTAGE_PASSES, sellIn, quality);
     }
 

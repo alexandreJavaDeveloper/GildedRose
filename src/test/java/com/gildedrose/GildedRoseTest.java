@@ -1,9 +1,9 @@
 package com.gildedrose;
 
 import com.gildedrose.custom.ItemCustom;
-import com.gildedrose.item.AgedBrie;
-import com.gildedrose.item.BackstagePasses;
-import com.gildedrose.item.Sulfuras;
+import com.gildedrose.item.AgedBrieItem;
+import com.gildedrose.item.BackstageItem;
+import com.gildedrose.item.SulfurasItem;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsAgedBrie() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new AgedBrie(0, 0));
+        itemCustoms.add(new AgedBrieItem(0, 0));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -29,7 +29,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsAgedBrieWithQuality() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new AgedBrie(1, 10));
+        itemCustoms.add(new AgedBrieItem(1, 10));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -42,7 +42,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsSulfuras() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new Sulfuras(0, 0));
+        itemCustoms.add(new SulfurasItem(0, 0));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -55,7 +55,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsSulfurasWithQuality() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new Sulfuras(2, 11));
+        itemCustoms.add(new SulfurasItem(2, 11));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -68,7 +68,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsBackstage() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new BackstagePasses(0, 0));
+        itemCustoms.add(new BackstageItem(0, 0));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -81,7 +81,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsBackstageWithQuality() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new BackstagePasses(3, 20));
+        itemCustoms.add(new BackstageItem(3, 20));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
@@ -94,7 +94,7 @@ class GildedRoseTest {
     @Test
     void updateQualityAsBackstageWithQuality_11() {
         List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new BackstagePasses(2, 11));
+        itemCustoms.add(new BackstageItem(2, 11));
         
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();

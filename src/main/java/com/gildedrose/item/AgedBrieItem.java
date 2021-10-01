@@ -2,11 +2,11 @@ package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
 
-public class AgedBrie extends ItemCustom {
+public class AgedBrieItem extends ItemCustom {
 
     private static final String AGED_BRIE = "Aged Brie";
 
-    public AgedBrie(int sellIn, int quality) {
+    public AgedBrieItem(int sellIn, int quality) {
         super(AGED_BRIE, sellIn, quality);
     }
 
