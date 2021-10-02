@@ -24,7 +24,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.AGED_BRIE, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.AGED_BRIE.getValue(), app.itemCustoms.get(0).name);
         assertEquals(4, app.itemCustoms.get(0).quality);
         assertEquals(-2, app.itemCustoms.get(0).sellIn);
     }
@@ -37,7 +37,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.AGED_BRIE, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.AGED_BRIE.getValue(), app.itemCustoms.get(0).name);
         assertEquals(13, app.itemCustoms.get(0).quality);
         assertEquals(-1, app.itemCustoms.get(0).sellIn);
     }
@@ -50,7 +50,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.SULFURAS, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.SULFURAS.getValue(), app.itemCustoms.get(0).name);
         assertEquals(0, app.itemCustoms.get(0).quality);
         assertEquals(0, app.itemCustoms.get(0).sellIn);
     }
@@ -63,7 +63,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.SULFURAS, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.SULFURAS.getValue(), app.itemCustoms.get(0).name);
         assertEquals(11, app.itemCustoms.get(0).quality);
         assertEquals(2, app.itemCustoms.get(0).sellIn);
     }
@@ -76,7 +76,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES.getValue(), app.itemCustoms.get(0).name);
         assertEquals(0, app.itemCustoms.get(0).quality);
         assertEquals(-2, app.itemCustoms.get(0).sellIn);
     }
@@ -89,7 +89,7 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES.getValue(), app.itemCustoms.get(0).name);
         assertEquals(26, app.itemCustoms.get(0).quality);
         assertEquals(1, app.itemCustoms.get(0).sellIn);
     }
@@ -102,22 +102,32 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES, app.itemCustoms.get(0).name);
+        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES.getValue(), app.itemCustoms.get(0).name);
         assertEquals(17, app.itemCustoms.get(0).quality);
         assertEquals(0, app.itemCustoms.get(0).sellIn);
     }
 
     @ParameterizedTest
-    @EnumSource(value = GildedRoseEnum.class, names = {"GUEST", "JOB", "SYSTEM"})
-    void updateQualityAsBackstageWithQuality_AsTryWithMoreThan50Quality() {
-        List<ItemCustom> itemCustoms = new ArrayList<>();
-        itemCustoms.add(new BackstageItem(5, 49));
+    @EnumSource(value = GildedRoseEnum.class, names = {"AGED_BRIE", "SULFURAS", "BACKSTAGE_PASSES"})
+    void updateQualityAsBackstageWithQuality_AsTryWithMoreThan50Quality(GildedRoseEnum gildedRoseEnum) {
+        final List<ItemCustom> itemCustoms = new ArrayList<>();
+        switch (gildedRoseEnum) {
+            case SULFURAS:
+                itemCustoms.add(new SulfurasItem(5, 50));
+                break;
+            case BACKSTAGE_PASSES:
+                itemCustoms.add(new BackstageItem(5, 50));
+                break;
+            case AGED_BRIE:
+                itemCustoms.add(new AgedBrieItem(5, 50));
+                break;
+            default:
+                throw new RuntimeException("Not mapped correctly GildedRoseEnum enumeration.");
+        }
 
         GildedRose app = new GildedRose(itemCustoms);
         app.updateQuality();
         app.updateQuality();
-        assertEquals(GildedRoseEnum.BACKSTAGE_PASSES, app.itemCustoms.get(0).name);
         assertEquals(50, app.itemCustoms.get(0).quality); // should remain 50
-        assertEquals(3, app.itemCustoms.get(0).sellIn);
     }
 }
