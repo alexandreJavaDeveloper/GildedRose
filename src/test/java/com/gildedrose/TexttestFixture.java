@@ -1,5 +1,11 @@
 package com.gildedrose;
 
+import com.gildedrose.custom.ItemCustom;
+import com.gildedrose.item.AgedBrieItem;
+import com.gildedrose.item.BackstageItem;
+import com.gildedrose.item.ConjuredItem;
+import com.gildedrose.item.SulfurasItem;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,18 +14,16 @@ public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
-        List<Item> items = Arrays.asList(new Item("+5 Dexterity Vest", 10, 20), //
-                new Item("Aged Brie", 2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
-                new Item("Sulfuras, Hand of Ragnaros", -1, 80),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
+        List<ItemCustom> itemCustoms = Arrays.asList(new AgedBrieItem(2, 0), //
+                new SulfurasItem(0, 80), //
+                new SulfurasItem(-1, 80),
+                new BackstageItem(15, 20),
+                new BackstageItem(10, 49),
+                new BackstageItem(5, 49),
                 // this conjured item does not work properly yet
-                new Item("Conjured Mana Cake", 3, 6));
+                new ConjuredItem(3, 6));
 
-        GildedRose app = new GildedRose(items);
+        GildedRose app = new GildedRose(itemCustoms);
 
         int days = 2;
         if (args.length > 0) {
@@ -29,7 +33,7 @@ public class TexttestFixture {
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
             System.out.println("name, sellIn, quality");
-            for (Item item : items) {
+            for (Item item : itemCustoms) {
                 System.out.println(item);
             }
             System.out.println();
@@ -37,4 +41,3 @@ public class TexttestFixture {
         }
     }
 }
-
