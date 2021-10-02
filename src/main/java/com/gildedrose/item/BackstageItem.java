@@ -1,13 +1,12 @@
 package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
+import com.gildedrose.enumeration.GildedRoseEnum;
 
 public class BackstageItem extends ItemCustom {
 
-    private static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
-
     public BackstageItem(int sellIn, int quality) {
-        super(BACKSTAGE_PASSES, sellIn, quality);
+        super(GildedRoseEnum.BACKSTAGE_PASSES, sellIn, quality);
     }
 
     @Override

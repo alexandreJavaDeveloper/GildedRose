@@ -1,13 +1,12 @@
 package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
+import com.gildedrose.enumeration.GildedRoseEnum;
 
 public class AgedBrieItem extends ItemCustom {
 
-    private static final String AGED_BRIE = "Aged Brie";
-
     public AgedBrieItem(int sellIn, int quality) {
-        super(AGED_BRIE, sellIn, quality);
+        super(GildedRoseEnum.AGED_BRIE, sellIn, quality);
     }
 
     @Override

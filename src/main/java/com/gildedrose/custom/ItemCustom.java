@@ -1,6 +1,7 @@
 package com.gildedrose.custom;
 
 import com.gildedrose.Item;
+import com.gildedrose.enumeration.GildedRoseEnum;
 
 /**
  * As we cannot change Item class, we needed to class this extension class.
@@ -11,8 +12,8 @@ import com.gildedrose.Item;
  */
 public abstract class ItemCustom extends Item {
 
-    public ItemCustom(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public ItemCustom(GildedRoseEnum gildedRoseEnum, int sellIn, int quality) {
+        super(gildedRoseEnum.getValue(), sellIn, quality);
     }
 
     protected void increaseQuality() {

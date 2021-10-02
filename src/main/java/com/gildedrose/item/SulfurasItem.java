@@ -1,13 +1,12 @@
 package com.gildedrose.item;
 
 import com.gildedrose.custom.ItemCustom;
+import com.gildedrose.enumeration.GildedRoseEnum;
 
 public class SulfurasItem extends ItemCustom {
 
-    private static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
-
     public SulfurasItem(int sellIn, int quality) {
-        super(SULFURAS, sellIn, quality);
+        super(GildedRoseEnum.SULFURAS, sellIn, quality);
     }
 
     @Override
