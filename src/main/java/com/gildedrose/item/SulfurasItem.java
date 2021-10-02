@@ -12,9 +12,6 @@ public class SulfurasItem extends ItemCustom {
 
     @Override
     public void updateQuality() {
-        if (quality >= 50) {
-            return;
-        }
-
+        // Sulfuras, being a legendary item, never has to be sold or decreases in Quality
     }
 }

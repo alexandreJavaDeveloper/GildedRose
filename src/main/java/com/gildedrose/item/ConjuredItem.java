@@ -10,6 +10,7 @@ public class ConjuredItem extends ItemCustom {
 
     @Override
     public void updateQuality() {
-
+        this.decreaseQuality();
+        this.decreaseQuality();
     }
 }

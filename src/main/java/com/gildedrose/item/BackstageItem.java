@@ -12,28 +12,20 @@ public class BackstageItem extends ItemCustom {
 
     @Override
     public void updateQuality() {
-        sellIn--;
+        this.decreaseDaysRemaining();
 
-        if (quality >= 50) {
-            return;
-        }
+        this.increaseQuality();
 
-        quality++;
-
-        if (sellIn < 11) {
+        if (this.sellIn < 11) {
             this.increaseQuality();
         }
 
-        if (sellIn < 6) {
+        if (this.sellIn < 6) {
             this.increaseQuality();
         }
 
-        if (sellIn < 0) {
-            quality = quality - quality;
+        if (this.sellIn < 0) {
+            this.quality = 0;
         }
-    }
-
-    private void increaseQuality() {
-        quality++;
     }
 }

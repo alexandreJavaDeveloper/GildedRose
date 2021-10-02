@@ -12,16 +12,12 @@ public class AgedBrieItem extends ItemCustom {
 
     @Override
     public void updateQuality() {
-        sellIn--;
+        this.decreaseDaysRemaining();
 
-        if (quality >= 50) {
-            return;
-        }
+        this.increaseQuality();
 
-        quality++;
-
-        if (sellIn < 0 && quality < 50) {
-            quality++;
+        if (this.sellIn < 0) {
+            this.increaseQuality();
         }
     }
 }
